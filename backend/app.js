@@ -52,7 +52,7 @@ app.use('/', auth);
 
 // Uncomment this line for production
 console.log('__dirname',__dirname)
-app.get('/*', (req, res) => res.sendFile(__dirname + '../frontend/build/index.html'));
+app.get('/*', (req, res) => res.sendFile('/app/frontend/build/index.html'));
 // For any other routes, redirect to the index.html file of React
 
 module.exports = app;
