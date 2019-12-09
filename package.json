@@ -1,0 +1,20 @@
+{
+  "name": "badgirl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "echo --- preinstall --- && cd backend && npm install && cd ../frontend && npm install && npm run build && cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FTWD-OCT-2019/badgirl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FTWD-OCT-2019/badgirl/issues"
+  },
+  "homepage": "https://github.com/FTWD-OCT-2019/badgirl#readme"
+}
