@@ -9,8 +9,12 @@ class SignUp extends Component {
 
     handleSubmit = async e => {
         e.preventDefault()
-        let user = await actions.signUp(this.state);
-        this.props.setUser({...user.data})  
+        try{
+            let user = await actions.signUp(this.state);
+            this.props.setUser({...user.data})  
+        } catch(err){
+            console.log('*****',err.message)
+        }
     }
     render() {
         return (

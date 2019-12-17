@@ -11,7 +11,7 @@ const session = require('express-session');
 const passport = require('./config/passport');
 
 mongoose
-  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://localhost/badgirl', { useNewUrlParser: true, useUnifiedTopology: true })
   .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch((err) => console.error('Error connecting to mongo', err));
 
@@ -23,7 +23,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FRONTENDPOINT]
+    origin: ["http://localhost:3000"]
   })
 );
 
@@ -31,7 +31,7 @@ app.use(
   session({
     resave: false,
     saveUninitialized: true,
-    secret: process.env.SECRET,
+    secret: "secret",
     cookie: { maxAge: 1000 * 60 * 60 }
   })
 );
@@ -58,7 +58,7 @@ let client = path.join(__dirname + '../public/index.html')
 console.log('client',client)
 //app.get('*', (req, res) => res.sendFile(client));
 // For any other routes, redirect to the index.html file of React
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+// })
 module.exports = app;
